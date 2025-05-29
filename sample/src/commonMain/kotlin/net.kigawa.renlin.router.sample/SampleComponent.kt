@@ -17,8 +17,15 @@ class SampleComponent(
         key = "key root"
 
         router {
-            route {
-
+            route(Routes.top).invoke {
+                p {
+                    t("top")
+                }
+            }
+            route(Routes.page).invoke {
+                p {
+                    t("page")
+                }
             }
         }
 
