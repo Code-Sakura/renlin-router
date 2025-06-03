@@ -18,6 +18,5 @@ nexusPublishing {
     // https://github.com/gradle-nexus/publish-plugin#publishing-to-maven-central-via-sonatype-ossrh
     repositories {
         sonatype()
-
     }
 }
