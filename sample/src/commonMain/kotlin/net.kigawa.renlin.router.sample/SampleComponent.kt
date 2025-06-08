@@ -16,7 +16,7 @@ class SampleComponent(
     val root = div.component {
         key = "key root"
 
-        router {
+        router().invoke {
             route(Routes.top).invoke {
                 p {
                     t("top")

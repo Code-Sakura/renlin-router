@@ -1,7 +1,8 @@
 package net.kigawa.renlin.router.provider
 
 import kotlinx.coroutines.flow.StateFlow
+import net.kigawa.kutil.kutil.api.io.fs.KuPath
 
 interface RouterProviderCommon {
-     val path: StateFlow<String>
+     val path: StateFlow<KuPath>
 }

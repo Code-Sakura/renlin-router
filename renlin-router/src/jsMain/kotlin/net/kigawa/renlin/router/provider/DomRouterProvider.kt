@@ -5,10 +5,11 @@ import kotlinx.browser.window
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import net.kigawa.kutil.kutil.api.io.fs.KuPath
 
 object DomRouterProvider : RouterProvider {
-    private val mutablePath = MutableStateFlow(window.location.pathname)
-    override val path: StateFlow<String> = mutablePath.asStateFlow()
+    private val mutablePath = MutableStateFlow(KuPath(window.location.pathname))
+    override val path: StateFlow<KuPath> = mutablePath.asStateFlow()
 
     init {
         document.addEventListener("popstate", {
@@ -17,6 +18,6 @@ object DomRouterProvider : RouterProvider {
     }
 
     private fun update() {
-        mutablePath.value = window.location.pathname
+        mutablePath.value = KuPath(window.location.pathname)
     }
 }
