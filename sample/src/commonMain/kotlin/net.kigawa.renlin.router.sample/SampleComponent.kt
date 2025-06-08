@@ -1,8 +1,8 @@
 package net.kigawa.renlin.router.sample
 
 import net.kigawa.renlin.category.t
-import net.kigawa.renlin.router.tag.route
-import net.kigawa.renlin.router.tag.router
+import net.kigawa.renlin.router.route.tag.route
+import net.kigawa.renlin.router.route.tag.router
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text

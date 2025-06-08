@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import net.kigawa.kutil.kutil.api.io.fs.KuPath
+import net.kigawa.renlin.router.route.provider.RouterProvider
 
 object DomRouterProvider : RouterProvider {
     private val mutablePath = MutableStateFlow(KuPath(window.location.pathname))

@@ -1,4 +1,4 @@
-package net.kigawa.renlin.router
+package net.kigawa.renlin.router.route
 
 import net.kigawa.kutil.kutil.api.io.fs.KuPath
 

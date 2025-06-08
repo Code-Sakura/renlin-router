@@ -1,8 +1,8 @@
-package net.kigawa.renlin.router.tag
+package net.kigawa.renlin.router.route.tag
 
 import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.router.provider.RouterProvider
+import net.kigawa.renlin.router.route.provider.RouterProvider
 
 fun <CONTENT_CATEGORY : ContentCategory> Dsl<CONTENT_CATEGORY>.router(
     routerProvider: RouterProvider = RouterProvider.defaultProvider

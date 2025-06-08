@@ -1,4 +1,4 @@
-package net.kigawa.renlin.router.provider
+package net.kigawa.renlin.router.route.provider
 
 import kotlinx.coroutines.flow.StateFlow
 import net.kigawa.kutil.kutil.api.io.fs.KuPath

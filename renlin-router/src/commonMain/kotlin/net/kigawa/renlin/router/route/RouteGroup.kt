@@ -1,4 +1,4 @@
-package net.kigawa.renlin.router
+package net.kigawa.renlin.router.route
 
 abstract class RouteGroup {
   var routes: List<Route> = listOf()

@@ -1,7 +1,7 @@
-package net.kigawa.renlin.router.tag
+package net.kigawa.renlin.router.route.tag
 
 import net.kigawa.renlin.category.ContentCategory
-import net.kigawa.renlin.router.provider.RouterProvider
+import net.kigawa.renlin.router.route.provider.RouterProvider
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.StructuredComponent
 
