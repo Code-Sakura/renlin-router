@@ -57,18 +57,16 @@ jobs:
           echo "MAVEN_PASSWORD is set: ${{ secrets.MAVEN_PASSWORD != '' }}"
           echo "Checking environment variables..."
           env | grep -E "ORG_GRADLE_PROJECT_|GITHUB_" | sort
-          
+
       - name: Publish package
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v2
         with:
-          arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository --info
-        env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWORD }}
-          ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.MAVEN_USERNAME }}
-          ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.MAVEN_PASSWORD }}
-          GITHUB_HEAD_REF: ${{ github.head_ref }}
-          GITHUB_REF_NAME: ${{ github.ref_name }}
+          arguments: |
+            -PmavenCentralUsername=${{ secrets.MAVEN_USERNAME }}
+            -PmavenCentralPassword=${{ secrets.MAVEN_PASSWORD }}
+            -PsigningInMemoryKeyId=${{ secrets.MAVEN_GPG_KEY_ID }}
+            -PsigningInMemoryPassword=${{ secrets.MAVEN_GPG_PASSPHRASE }}
+            publishToSonatype closeAndReleaseSonatypeStagingRepository
           
       - name: Auto-merge PR on successful deployment
         if: success()
