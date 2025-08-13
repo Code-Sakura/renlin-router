@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    if: github.head_ref == 'develop'
+    if: github.head_ref == 'develop' || startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     
     steps:
