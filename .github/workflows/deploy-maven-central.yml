@@ -51,10 +51,17 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Final version: $VERSION"
           
+      - name: Debug environment variables
+        run: |
+          echo "MAVEN_USERNAME is set: ${{ secrets.MAVEN_USERNAME != '' }}"
+          echo "MAVEN_PASSWORD is set: ${{ secrets.MAVEN_PASSWORD != '' }}"
+          echo "Checking environment variables..."
+          env | grep -E "ORG_GRADLE_PROJECT_|GITHUB_" | sort
+          
       - name: Publish package
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
+          arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository --info
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWORD }}
