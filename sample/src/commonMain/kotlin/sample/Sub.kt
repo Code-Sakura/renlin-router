@@ -2,6 +2,7 @@ package sample
 
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.hakate.api.state.MutableState
+import net.kigawa.renlin.component.component
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
@@ -18,7 +19,6 @@ class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state")
 
     val display = div.component {
-        t("display")
         div(key = "key display") {
             val value = state.useValue()
             t("display1", key = "key display1")
@@ -45,7 +45,6 @@ class Sub {
         }
     }
     val controller = div.component {
-        t("controller")
 
     }
     val test = fragment<FlowContent>().component { }

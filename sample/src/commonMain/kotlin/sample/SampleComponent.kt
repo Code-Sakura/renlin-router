@@ -1,11 +1,13 @@
 package sample
 
+import net.kigawa.renlin.component.component
 import net.kigawa.renlin.router.route.tag.route
 import net.kigawa.renlin.router.route.tag.router
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
 import net.kigawa.renlin.w3c.category.t
+
 
 class SampleComponent(
     val name: String,
@@ -15,17 +17,17 @@ class SampleComponent(
 
     val root = div.component {
 
-        router().invoke {
-            route(Routes.top).invoke {
+        router {
+            route(Routes.top, {
                 p {
                     t("top")
                 }
-            }
-            route(Routes.page).invoke {
+            })
+            route(Routes.page, {
                 p {
                     t("page")
                 }
-            }
+            })
         }
 
         div {
@@ -33,9 +35,7 @@ class SampleComponent(
                 +"repeat "
             }
         }
-        sub.display {
-
-        }
+        sub.display()
 
         fragment {
             div {
@@ -50,17 +50,12 @@ class SampleComponent(
             }
         }
 //        fragment {
-        sub.display {
-
-        }
+        sub.display()
 //        }
-        sub.controller {
-
-        }
+        sub.controller()
         p {
 //            key = "uuid 5"
         }
-        sub.test {}
-        sub.test1 {}
+
     }
 }
