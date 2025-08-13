@@ -2,12 +2,12 @@ name: Deploy to Maven Central
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize]
     branches: [main]
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == true && github.head_ref == 'develop'
+    if: github.head_ref == 'develop'
     runs-on: ubuntu-latest
     
     steps:
@@ -38,3 +38,20 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          
+      - name: Auto-merge PR on successful deployment
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            if (pr) {
+              await github.rest.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                merge_method: 'merge'
+              });
+              console.log(`PR #${pr.number} has been automatically merged after successful deployment`);
+            }
