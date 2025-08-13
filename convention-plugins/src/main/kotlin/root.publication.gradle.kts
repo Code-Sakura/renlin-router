@@ -42,7 +42,7 @@ val projectVersion = determineVersion()
 group = Conf.GROUP
 version = projectVersion
 allprojects {
-    apply(plugin = "renlin.common")
+    apply(plugin = "common")
     group = Conf.GROUP
     version = projectVersion
 }
