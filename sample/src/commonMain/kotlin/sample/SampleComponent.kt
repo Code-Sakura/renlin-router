@@ -1,11 +1,11 @@
-package net.kigawa.renlin.router.sample
+package sample
 
-import net.kigawa.renlin.category.t
 import net.kigawa.renlin.router.route.tag.route
 import net.kigawa.renlin.router.route.tag.router
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
+import net.kigawa.renlin.w3c.category.t
 
 class SampleComponent(
     val name: String,
@@ -14,7 +14,6 @@ class SampleComponent(
     var update: (Int) -> Unit = {}
 
     val root = div.component {
-        key = "key root"
 
         router().invoke {
             route(Routes.top).invoke {
@@ -30,14 +29,12 @@ class SampleComponent(
         }
 
         div {
-            key = "uuid 1"
             text {
-                key = "uuid 1-1"
                 +"repeat "
             }
         }
         sub.display {
-            key = "uuid 2"
+
         }
 
         fragment {
@@ -54,17 +51,16 @@ class SampleComponent(
         }
 //        fragment {
         sub.display {
-            key = "uuid 3"
+
         }
 //        }
         sub.controller {
-            key = "uuid 4"
+
         }
         p {
 //            key = "uuid 5"
         }
         sub.test {}
         sub.test1 {}
-        sub.test2 {}
     }
 }

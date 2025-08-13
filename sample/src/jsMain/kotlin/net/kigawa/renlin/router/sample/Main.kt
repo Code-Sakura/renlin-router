@@ -4,7 +4,8 @@ import kotlinx.browser.document
 import kotlinx.browser.window
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.renlin.Entrypoint
-import kotlin.text.set
+import sample.SampleComponent
+import sample.Sub
 
 fun main() {
     println("Hello, Kotlin/JS!")

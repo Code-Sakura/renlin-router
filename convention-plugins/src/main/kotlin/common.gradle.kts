@@ -29,7 +29,7 @@ kotlin {
   }
   sourceSets["commonMain"].dependencies {
     implementation("net.kigawa:hakate:3.3.1")
-    implementation("net.kigawa:renlin:1.0.0-SNAPSHOT")
+    implementation("net.kigawa:renlin:1.0.1")
   }
   sourceSets["commonTest"].dependencies {
 

@@ -1,4 +1,4 @@
-package net.kigawa.renlin.router.provider
+package net.kigawa.renlin.router.route.provider
 
 import kotlinx.browser.document
 import kotlinx.browser.window

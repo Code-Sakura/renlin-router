@@ -1,4 +1,4 @@
-package net.kigawa.renlin.router.sample
+package sample
 
 import net.kigawa.renlin.router.route.RouteGroup
 
