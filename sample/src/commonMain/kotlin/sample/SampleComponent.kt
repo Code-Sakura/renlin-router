@@ -1,5 +1,6 @@
 package sample
 
+import net.kigawa.renlin.component.component
 import net.kigawa.renlin.router.route.tag.route
 import net.kigawa.renlin.router.route.tag.router
 import net.kigawa.renlin.tag.div
@@ -17,13 +18,17 @@ class SampleComponent(
 
         router().invoke {
             route(Routes.top).invoke {
-                p {
-                    t("top")
+                div {
+                    p {
+                        t("top")
+                    }
                 }
             }
             route(Routes.page).invoke {
-                p {
-                    t("page")
+                div {
+                    p {
+                        t("page")
+                    }
                 }
             }
         }
@@ -33,9 +38,7 @@ class SampleComponent(
                 +"repeat "
             }
         }
-        sub.display {
-
-        }
+        sub.display()
 
         fragment {
             div {
@@ -50,17 +53,13 @@ class SampleComponent(
             }
         }
 //        fragment {
-        sub.display {
-
-        }
+        sub.display ()
 //        }
-        sub.controller {
-
-        }
-        p {
+        sub.controller ()
+        div {
+            p {
 //            key = "uuid 5"
+            }
         }
-        sub.test {}
-        sub.test1 {}
     }
 }

@@ -2,7 +2,7 @@ package net.kigawa.renlin.router.route
 
 import net.kigawa.kutil.kutil.api.io.fs.KuPath
 
-class Route(private val path: KuPath) {
+data class Route(val path: KuPath) {
     fun isMach(path: KuPath): Boolean {
         return this.path == path
     }
